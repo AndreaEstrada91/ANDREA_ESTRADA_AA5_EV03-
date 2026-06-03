@@ -1,16 +1,17 @@
-import main.java.config.Conexion;
-import main.java.dao.ProductoDAO;
-import main.java.modelo.Producto;
+import config.Conexion;
+import dao.ProductoDAO;
+import modelo.Producto;
 
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.List;
 
+
 public class App {
     public static void main(String[] args) {
         System.out.println("=== Iniciando Módulo ArTechsanías ===");
         
-        // TRUCO: Creamos la base de datos por código por si tu Workbench sigue fallando
+    
         try (Connection con = Conexion.conectar(); Statement st = con.createStatement()) {
             st.executeUpdate("CREATE DATABASE IF NOT EXISTS artechsanias_db");
             st.executeUpdate("USE artechsanias_db");
